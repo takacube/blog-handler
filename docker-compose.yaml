@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  localstack:
+    container_name: localstack
+    image: localstack/localstack:0.13.3
+    environment:
+      SERVICES: dynamodb
+      INIT_SCRIPTS_PATH: /docker-entrypoint-initaws.d
+      DEFAULT_REGION: 'ap-northeast-1'
+    ports:
+      - '4566:4566'
+    volumes:
+      - ./init:/docker-entrypoint-initaws.d
+      - ./json:/json
