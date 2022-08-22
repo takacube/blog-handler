@@ -1,10 +1,14 @@
+import { stringify } from 'querystring';
+import { Blog } from '../../Domains/Blog';
 describe('Domain', () => {
-    test('blog', () => {
-        const five = '5';
-        expect(five).toEqual('5');
+    test('create blog', () => {
+        const blog = new Blog();
+        blog.createBlog('https://qiita.com', 'good', 'Frontend')
+        expect(blog.url).toEqual('https://qiita.com');
+        expect(blog.comment).toEqual('good');
+        expect(blog.genre).toEqual('Frontend');
     });
-    test('a', () => {
-        const five = '5';
-        expect(five).toEqual('5');
-    });
+    test('', () => {
+        
+    })
 });
