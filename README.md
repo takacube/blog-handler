@@ -48,3 +48,38 @@ blog-tracking-app$ cd hello-world
 hello-world$ npm install
 hello-world$ npm run test
 ```
+
+
+開発環境セットアップ For Developer
+
+開発環境：M1 Mac
+
+Prerequisit
+- AWS CLI
+- AWS SAM CLI
+- Docker Desktop
+- npm
+
+1. DBの立ち上げ
+
+```bash
+docker compose up
+```
+
+2. テーブル作成
+
+```bash
+aws dynamodb create-table --cli-input-json file://json/blog.json --endpoint-url=http://localhost:4566
+
+##テーブルの一覧
+aws dynamodb list-tables --endpoint-url=http://localhost:4566
+```
+
+3. モックアイテムの挿入
+
+```bash
+
+aws dynamodb put-item --table-name blog --item '{ "url": { "S": "https://takanao.com" }, "comment": { "S": "LGTM" }, "genre": { "S": "frontend" } }' --endpoint-url=http://localhost:4566
+
+aws dynamodb put-item --table-name blog --item '{ "url": { "S": "https://quita.com" }, "comment": { "S": "AWSOME" }, "genre": { "S": "backend" } }' --endpoint-url=http://localhost:4566
+```
