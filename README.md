@@ -21,6 +21,7 @@ blog-tracking-app$ sam local invoke HelloWorldFunction --event events/event.json
 ```
 
 2. ポート解放による関数の呼び出し
+
 SAM CLIはアプリケーションのAPIをローカル3000番ポートにエミュレートすることができる
 The SAM CLI can also emulate your application's API. Use the `sam local start-api` to run the API locally on port 3000.
 
