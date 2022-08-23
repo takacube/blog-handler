@@ -1,0 +1,19 @@
+{
+    "TableName": "blog",
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "url",
+            "AttributeType": "S"
+        }
+    ],
+    "KeySchema": [
+        {
+            "AttributeName": "url",
+            "KeyType": "HASH"
+        }
+    ],
+    "ProvisionedThroughput": {
+        "WriteCapacityUnits": 5,
+        "ReadCapacityUnits": 10
+    }
+}
