@@ -1,6 +1,7 @@
 # blog-tracking-app
 
 デプロイの前にはビルドを行ってから以下のデプロイコマンドを実行することでAWSにリソースを作ることができる
+
 To build and deploy your application for the first time, run the following in your shell:
 
 ```bash
@@ -50,7 +51,7 @@ hello-world$ npm run test
 ```
 
 
-開発環境セットアップ For Developer
+## 開発環境セットアップ For Developer
 
 開発環境：M1 Mac
 
