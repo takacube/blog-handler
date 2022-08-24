@@ -11,10 +11,10 @@ export class Blog implements IBlog {
         this.BlogDomainService = BlogDomainService
     }
 
-    createBlog(url: string, comment: string, genre: Genre) {
+    async createBlog(url: string, comment: string, genre: Genre) {
         if (
-            !this.BlogDomainService.exists(url) &&
-            this.BlogDomainService.validUrl(url)
+            !(await this.BlogDomainService.exists(url)) &&
+            await this.BlogDomainService.validUrl(url)
         ) {
             this.url = url
             this.comment = comment
