@@ -1,4 +1,4 @@
 export interface IBlogDomainService {
-    exists(url: string): boolean
-    validUrl(url: string): boolean
+    exists(url: string): Promise<boolean>
+    validUrl(url: string): Promise<boolean>
 }

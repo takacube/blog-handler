@@ -4,13 +4,13 @@ export class BlogDomainService {
     constructor(blogStorage: IBlogStorage){
         this.blogStorage = blogStorage
     }
-    exists(url: string){
-        if(this.blogStorage.findByUrl(url).url.S == url ){
+    async exists(url: string){
+        if((await this.blogStorage.findByUrl(url)).url.S == url ){
             return true
         }
         return false
     }
-    validUrl(url: string){
+    async validUrl(url: string){
         if(url.startsWith('http') || url.startsWith('https')){
             return true
         }
