@@ -1,5 +1,8 @@
 # blog-tracking-app
 
+![image](https://user-images.githubusercontent.com/83538851/186484628-04ab33f7-700b-4522-9b3b-0d38dcedb3b1.png)
+
+
 デプロイの前にはビルドを行ってから以下のデプロイコマンドを実行することでAWSにリソースを作ることができる
 
 To build and deploy your application for the first time, run the following in your shell:
