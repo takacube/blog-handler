@@ -1,6 +1,6 @@
 export interface IResponse {
-        genre: {S: string},
-        url: {S: string},
-        comment: {S: string}
-        error: {S: string}
+        genre: {S: Promise<string> | string},
+        url: {S: Promise<string> | string},
+        comment: {S: Promise<string> | string}
+        error: {S: Promise<string> | string}
 }

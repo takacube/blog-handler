@@ -51,11 +51,17 @@ export class BlogDynamoDB {
             })
             .promise()
             if (res.Items && res.Items.length == 1) {
-                return res.Items[0]
+                console.log(`${res.Items[0]['url']['S']}, ${res.Items[0]['comment']['S']},${res.Items[0]['genre']['S']} `)
+                this.defaultRes.url.S = `${res.Items[0]['url']['S']}`
+                this.defaultRes.comment.S = `${res.Items[0]['comment']['S']}`
+                this.defaultRes.genre.S = `${res.Items[0]['genre']['S']}`
+                return this.defaultRes
             }
+
             return this.defaultRes
         } catch(err){
-            return this.defaultRes.error.S = `エラーメッセージ: ${err}`
+            this.defaultRes.error.S = `エラーメッセージ: ${err}`
+            return this.defaultRes
         }
     }
 
@@ -70,7 +76,7 @@ export class BlogDynamoDB {
             .promise()
             return res
         } catch(err){
-            return `エラーメッセージ: ${err}`
+            return this.defaultRes.error.S = `エラーメッセージ: ${err}`
         }
     }
 }
