@@ -4,6 +4,7 @@ import { Blog } from '../../Domains/Blog';
 import { MockBlogDomainService } from '../../DomainServices/MockDomainService'
 import { MockBlogStorage } from '../../Infrastractures/MockBlogStorage'
 import { BlogDomainService } from '../../DomainServices/BlogDomainService'
+import { IResponse } from '../../Infrastractures/IResponse'
 describe('Domain', () => {
     test('create blog', () => {
         const blog = new Blog(new MockBlogDomainService());
