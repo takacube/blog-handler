@@ -1,8 +1,8 @@
 export class MockBlogDomainService {
-    exists(url: string){
+    async exists(url: string){
         return false
     }
-    validUrl(url: string){
+    async validUrl(url: string){
         return true
     }
 }
