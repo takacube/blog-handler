@@ -1,5 +1,5 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-
+import { getBlogList } from './Presentaion/CLI/GetBlog'
 /**
  *
  * Event doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format
@@ -12,11 +12,13 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 
 export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
     let response: APIGatewayProxyResult;
+    const res = await getBlogList('frontend')
+
     try {
         response = {
             statusCode: 200,
             body: JSON.stringify({
-                message: 'hello world',
+                message: `レスポンス${res}`,
             }),
         };
     } catch (err) {
@@ -24,7 +26,7 @@ export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGat
         response = {
             statusCode: 500,
             body: JSON.stringify({
-                message: 'some error happened',
+                message: `some error happened${err}`,
             }),
         };
     }
