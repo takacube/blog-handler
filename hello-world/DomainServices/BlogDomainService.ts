@@ -5,7 +5,7 @@ export class BlogDomainService {
         this.blogStorage = blogStorage
     }
     exists(url: string){
-        if(this.blogStorage.findByUrl(url)){
+        if(this.blogStorage.findByUrl(url).url.S == url ){
             return true
         }
         return false
