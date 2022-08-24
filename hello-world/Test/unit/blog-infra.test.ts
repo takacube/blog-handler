@@ -18,4 +18,9 @@ describe('Infrastracture', () => {
         const res = await dynamoClient.findByGenre('frontend')
         expect(res[0]['genre']['S']).toEqual('frontend')
     })
+    test('[失敗][GENRE]fetch blog which does not exists', async() => {
+        const dynamoClient = new BlogDynamoDB()
+        const res = await dynamoClient.findByGenre('infra')
+        expect(res[0]['error']['S']).toEqual('一致するデータが見つかりませんでした')
+    })
 });
