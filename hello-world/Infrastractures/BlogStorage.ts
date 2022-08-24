@@ -59,14 +59,18 @@ export class BlogDynamoDB {
         }
     }
 
-    createBlog(url: string, comment: string, genre: Genre){
-        try {
-            //const statement = 'SELECT * FROM blog'
-            //const res = this.dbclient.executeStatement({Statement: statement})
-            return 'res'
-        } catch (err) {
-            const res = err
+    async createBlog(url: string, comment: string, genre: Genre){
+        try{
+            const res = await this.ddb
+            .executeStatement({
+            Statement: `
+            INSERT INTO blog VALUE {'url': '${url}', 'comment': '${comment}', 'genre': '${genre}'}
+            `,
+            })
+            .promise()
             return res
+        } catch(err){
+            return `エラーメッセージ: ${err}`
         }
     }
 }

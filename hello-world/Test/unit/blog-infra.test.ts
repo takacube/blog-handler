@@ -23,4 +23,13 @@ describe('Infrastracture', () => {
         const res = await dynamoClient.findByGenre('infra')
         expect(res[0]['error']['S']).toEqual('一致するデータが見つかりませんでした')
     })
+    /*
+    このテストは一度登録したらコンテナを立ち上げ直すまで落ちる．
+    どうしたらいいんだろ
+    */
+    test('[成功] INSERT DATA', async() => {
+        const dynamoClient = new BlogDynamoDB()
+        const res = await dynamoClient.createBlog('https://takanao', 'いいね', 'backend')
+        expect(res).toEqual('a')
+    })
 });
