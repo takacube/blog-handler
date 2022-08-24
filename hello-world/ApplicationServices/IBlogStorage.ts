@@ -7,6 +7,7 @@ type blogType = {
     genre: Genre
 }
 export interface IBlogStorage {
-    findByGenre(genre: Genre): IResponse[]
-    findByUrl(url: string): IResponse
+    findByGenre(genre: Genre): Promise<IResponse[]> | Promise<any[]>
+    findByUrl(url: string): Promise<IResponse> | IResponse
+    createBlog(url: string, comment: string, genre: Genre): any
 }

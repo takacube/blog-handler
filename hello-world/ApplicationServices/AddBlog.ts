@@ -10,7 +10,14 @@ export class AddBlog {
         this.blogStorage = blogStorage
         this.blogDomainService = blogDomainService
     }
-    addBlog(url: string, comment: string, genre: Genre){
+    async addBlog(url: string, comment: string, genre: Genre){
         const blog = new Blog(this.blogDomainService).createBlog(url, comment, genre)
+        const res = await this.blogStorage
+        .createBlog(
+            (await blog).url,
+            (await blog).comment,
+            (await blog).genre
+        )
+        return (res)
     }
 }
