@@ -13,7 +13,7 @@ export const handleRequest = async(msg: any, token: string) => {
             replyToken: `${token}`,
             messages: blogBlocks
         }
-        await axios.post('https://api.line.me/v2/bot/message/reply', msgToSend, { headers: { 'Authorization': 'Bearer 6Nnh0ly+4gASbqTLoiQSY2EXph1eq32OvExOX+CQoSx7Hf8naZDdypYNEKWkpUgjqULBfDGT8JzQZno0MFSR1q2VRuugqZAPKflZGjxnqETU6ZLFrf544jZ8XcphIkbKrsSUzr1LdcLerso0KK+3BAdB04t89/1O/w1cDnyilFU=', 'Content-Type': 'application/json' } })
+        await axios.post('https://api.line.me/v2/bot/message/reply', msgToSend, { headers: { 'Authorization': 'Bearer xxxxx-xxxx', 'Content-Type': 'application/json' } })
     }
 }
 
