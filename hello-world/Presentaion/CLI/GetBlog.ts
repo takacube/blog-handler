@@ -1,3 +1,4 @@
+/*
 import { FetchBlog } from '../../ApplicationServices/FetchBlog'
 import { BlogDynamoDB } from '../../Infrastractures/BlogStorage'
 import { BlogDomainService } from '../../DomainServices/BlogDomainService'
@@ -6,7 +7,6 @@ import { Genre } from '../../Domains/Genre'
 export const getBlog = async() => {
     const fetchBlogService = new FetchBlog(new BlogDynamoDB(), new BlogDomainService(new BlogDynamoDB()))
     const res = await fetchBlogService.findBlogByUrl('https://takanao.com')
-    
 }
 
 export const getBlogList = async(genre: Genre) => {
@@ -18,5 +18,6 @@ export const getBlogList = async(genre: Genre) => {
     for (const item of res){
         message += `${item['url']['S']}:${item['comment']['S']}`
     }
-    return 'aaaaaa'
+    return message
 }
+*/

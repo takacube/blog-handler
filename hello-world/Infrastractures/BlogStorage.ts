@@ -18,7 +18,7 @@ export class BlogDynamoDB {
         }
 
         this.ddb = new DynamoDB({
-            endpoint: 'http://localhost:4566',
+            //endpoint: 'http://localhost:4566',
             region: 'ap-northeast-1'
         })
     }
